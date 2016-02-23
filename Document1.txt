@@ -1,0 +1,23 @@
+
+import org.eclipse.egit.github.core.Repository;
+import org.eclipse.egit.github.core.service.RepositoryService;
+
+
+	public static void main(String[] args) throws IOException {
+		final String user = "defunkt";
+		final String format = "{0}) {1}- created on {2}";
+		int count = 1;
+		RepositoryService service = new RepositoryService();
+		for (Repository repo : service.getRepositories(user))
+			System.out.println(MessageFormat.format(format, count++,
+					repo.getName(), repo.getCreatedAt()));
+	}
+	
+http://developer.github.com/v3/repos
+
+https://developer.github.com/v3/repos/#list-your-repositories
+GET /user/repos
+
+
+GET /orgs/:org/repos
+
